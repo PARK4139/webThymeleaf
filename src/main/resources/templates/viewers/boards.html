@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <meta lang="ko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title  th:replace="viewers/common/fragments/common :: titlefragment('boards')">foo</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-static/">
+<link href="/assets/dist/css/bootstrap.min.css" th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="navbar-top.css" rel="stylesheet">
+  </head>
+  <body>
+<nav th:replace="viewers/common/fragments/common :: footerFragment('boards')">
+  foo_footerFragment
+</nav>
+<!--<div th:replace="viewers/common/fragments/common :: testFragment('2')">-->
+<!--  foo_testFragment-->
+<!--</div>-->
+
+
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h1>게시판</h1>
+    <p class="lead">______7</p>
+    <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">______8&raquo;</a>
+  </div>
+</main>
+
+
+    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta charset="utf-8">
+    <meta lang="ko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title  th:replace="viewers/common/fragments/common :: titlefragment('home')">foo</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-static/">
+<link href="/assets/dist/css/bootstrap.min.css" th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="navbar-top.css" rel="stylesheet">
+  </head>
+  <body>
+<nav th:replace="viewers/common/fragments/common :: footerFragment('home')">
+  foo_footerFragment
+</nav>
+<!--<nav th:replace="viewers/common/fragments/common :: testFragment('1')">-->
+<!--  foo_testFragment-->
+<!--</nav>-->
+
+
+<main class="container">
+  <div class="bg-light p-5 rounded">
+  </div>
+</main>
+
+
+    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>
