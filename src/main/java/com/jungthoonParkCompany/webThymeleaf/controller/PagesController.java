@@ -54,7 +54,7 @@ public class PagesController {
     public String try_2022_10_18_18_54_26(Model model) {
         List<Board> board_records = boardRepository.findAll();
         model.addAttribute("board_records", board_records);
-        return "/viewers/boards";;
+        return "/viewers/boards";
     }
     //이 코드 작동 시나리오(database 이동 관점)
     // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 url ready )
