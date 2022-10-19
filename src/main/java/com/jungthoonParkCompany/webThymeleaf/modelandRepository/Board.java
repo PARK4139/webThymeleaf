@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 public class Board {
     @Id // ==Primary Key
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   //==Auto_INCREMENT사용간편
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   //== IDENTITY 사용간편  SEQUENCE 로 하면 고성능이나 관리가 필요하다고 한다.
     private long id;
     private String title;
     private String content;

@@ -2,7 +2,7 @@ package com.jungthoonParkCompany.webThymeleaf.controller;
 
 
 import com.jungthoonParkCompany.webThymeleaf.modelandRepository.Board;
-import com.jungthoonParkCompany.webThymeleaf.modelandRepository.BoardsRepository;
+import com.jungthoonParkCompany.webThymeleaf.modelandRepository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/pages")
 public class PagesController {
     @Autowired
-    private BoardsRepository boardsRepository;   // JpaRepository 를 extends한 interface Boardrepository를
+    private BoardRepository boardRepository;   // JpaRepository 를 extends한 interface Boardrepository를
 
     //    @RequestMapping("/")
 //    public String try100() {
@@ -52,8 +52,8 @@ public class PagesController {
 //
     @GetMapping("/boards")
     public String try_2022_10_18_18_54_26(Model model) {
-        List<Board> boards = boardsRepository.findAll();
-        model.addAttribute("boards", boards);
+        List<Board> board_records = boardRepository.findAll();
+        model.addAttribute("board_records", board_records);
         return "/viewers/boards";
     }
     //이 코드 작동 시나리오(database 이동 관점)
@@ -72,7 +72,7 @@ public class PagesController {
 
 //    @GetMapping("/boards")
 //    public ModelAndView try_2022_10_18_18_54_26(Model model){
-//        List<Board> boards = boardsRepository.findAll();
+//        List<Board> boards = boardRepository.findAll();
 //        return new ModelAndView("/viewers/boards");
 //    }
 
