@@ -56,9 +56,7 @@ public class PagesController {
         model.addAttribute("boards", boards);
         return "/viewers/boards";
     }
-
-
-    //이 코드 작동 시나리오
+    //이 코드 작동 시나리오(database 이동 관점)
     // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 url ready )
     // client로  boardsRepository를 통해   jhpDB의 table의 record를 가져와 model에 저장을 합니다.(client로  model을 response ready)
     // client로 templates/viewers/boards.html를 response 할 준비를 합니다.(html rsrc ready)
