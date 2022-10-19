@@ -1,7 +1,6 @@
-package com.jungthoonParkCompany.webThymeleaf.model;
+package com.jungthoonParkCompany.webThymeleaf.modelandRepository;
 
 import lombok.Data;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

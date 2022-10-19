@@ -1,15 +1,22 @@
 package com.jungthoonParkCompany.webThymeleaf.controller;
 
 
+import com.jungthoonParkCompany.webThymeleaf.modelandRepository.Board;
+import com.jungthoonParkCompany.webThymeleaf.modelandRepository.BoardsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/pages")
 public class PagesController {
+    @Autowired
+    private BoardsRepository boardsRepository;   // JpaRepository 를 extends한 interface Boardrepository를
+
     //    @RequestMapping("/")
 //    public String try100() {
 //        System.out.println("way recommanded - 예상국 - ");
@@ -23,29 +30,54 @@ public class PagesController {
 //        return "index";
 //    }
 
-//    @GetMapping("/home")
-//    public String try_2022_10_18_02_26_54(){
-//        return "/viewers/home";
+    @GetMapping("/home")
+    public String try_2022_10_18_02_26_54() {
+        return "/viewers/home";
+    }
+
+//    @G`etMapping("/home")
+//    public ModelAndView try_2022_10_18_02_26_54(){
+//        return new ModelAndView("/viewers/home");
+//    }`
+//    @GetMapping("/boards")
+//    public ModelAndView try_2022_10_18_18_54_26(){
+//        return new ModelAndView("/viewers/boards");
 //    }
 
-    @GetMapping("/home")
-    public ModelAndView try_2022_10_18_02_26_54(){
-        return new ModelAndView("/viewers/home");
+//        @GetMapping("/boards")
+//    public String  try_2022_10_18_18_54_26(){
+//        return "/viewers/boards";
+//    }
+//
+//
+    @GetMapping("/boards")
+    public String try_2022_10_18_18_54_26(Model model) {
+        List<Board> boards = boardsRepository.findAll();
+        model.addAttribute("boards", boards);
+        return "/viewers/boards";
     }
+
+
+    //이 코드 작동 시나리오
+    // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 url ready )
+    // client로  boardsRepository를 통해   jhpDB의 table의 record를 가져와 model에 저장을 합니다.(client로  model을 response ready)
+    // client로 templates/viewers/boards.html를 response 할 준비를 합니다.(html rsrc ready)
+    // http://localhost:9090/pages/boards 로 response를 한다
+
+
+
+
 //    @GetMapping("/boards")
 //    public ModelAndView try_2022_10_18_18_54_26(){
 //        return new ModelAndView("/viewers/boards");
 //    }
 
 //    @GetMapping("/boards")
-//    public String  try_2022_10_18_18_54_26(){
-//        return "/viewers/boards";
+//    public ModelAndView try_2022_10_18_18_54_26(Model model){
+//        List<Board> boards = boardsRepository.findAll();
+//        return new ModelAndView("/viewers/boards");
 //    }
-//
-    @GetMapping("/boards")
-    public ModelAndView try_2022_10_18_18_54_26(){
-        return new ModelAndView("/viewers/boards");
-    }
+
 
 //
 //    @GetMapping("/test")
@@ -58,7 +90,6 @@ public class PagesController {
 //    public ModelAndView try_2022_10_18_17_23_25(){
 //        return new ModelAndView("/greeting");
 //    }
-
 
 
 //    @ResponseBody
@@ -83,7 +114,6 @@ public class PagesController {
 //        System.out.println("did try to trigger method successfully");
 //        return usr;
 //    }
-
 
 
 }
