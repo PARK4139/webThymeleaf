@@ -2,6 +2,7 @@ package com.jungthoonParkCompany.webThymeleaf.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,17 +23,29 @@ public class PagesController {
 //        return "index";
 //    }
 
+//    @GetMapping("/home")
+//    public String try_2022_10_18_02_26_54(){
+//        return "/viewers/home";
+//    }
+
     @GetMapping("/home")
     public ModelAndView try_2022_10_18_02_26_54(){
         return new ModelAndView("/viewers/home");
     }
+//    @GetMapping("/boards")
+//    public ModelAndView try_2022_10_18_18_54_26(){
+//        return new ModelAndView("/viewers/boards");
+//    }
 
+//    @GetMapping("/boards")
+//    public String  try_2022_10_18_18_54_26(){
+//        return "/viewers/boards";
+//    }
+//
     @GetMapping("/boards")
     public ModelAndView try_2022_10_18_18_54_26(){
         return new ModelAndView("/viewers/boards");
     }
-
-
 
 //
 //    @GetMapping("/test")

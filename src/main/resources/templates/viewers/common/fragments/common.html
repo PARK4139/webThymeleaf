@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <title class="_______" th:fragment="titlefragment(titleParameter)" th:text="${titleParameter}"></title>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:fragment="footerFragment(footerFragmentParameter)">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:fragment="navFragment(navFragmentParameter)">
     <div class="container-fluid">
         <a class="nav-link" aria-current="page" href="/pages/home">administrator</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarColl apse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item"  >
-                    <a class="nav-link "  href="/pages/home"   th:classappend="${footerFragmentParameter} == 'home'? 'active'" >홈</a>
+                    <a class="nav-link "  href="/pages/home"   th:classappend="${navFragmentParameter} == 'home'? 'active'" >홈</a>
                 </li>
                 <li class="nav-item"  >
-                    <a class="nav-link "  href="/pages/boards"  th:classappend="${footerFragmentParameter} == 'boards'? 'active'" >게시판</a>
+                    <a class="nav-link "  href="/pages/boards"  th:classappend="${navFragmentParameter} == 'boards'? 'active'" >게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">______4</a>
+                    <a class="nav-link disabled">TBD</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -29,13 +29,6 @@
     </div>
 </nav>
 
-
-<!--nav 밖이라서 무의미하다.-->
-<div class="_______" th:fragment="testFragment(testparameter)">
-    testFragment
-    <div class="sr-only" th:if="$(testparameter)=='2'">2</div>
-    <div class="sr-only" th:if="$(testparameter)=='1'">1</div>
-</div>
 </body>
 
 </html>

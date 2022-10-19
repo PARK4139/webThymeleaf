@@ -24,6 +24,6 @@ public class WebThymeleafApplication {
 		System.out.println();
 		System.out.println("high freuency");
 		System.out.println("http://localhost:9090/pages/home");
-
+		System.out.println("http://localhost:9090/pages/boards");
 	}
 }

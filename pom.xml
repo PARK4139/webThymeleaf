@@ -26,12 +26,26 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<!--		<dependency>-->
+
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<!--			<version>2.7.4</version>-->
+			<!--				spring boot를 사용한다면 spring-boot-starter-data-jpa의 version은 pom.xml 의 위에서 version에 따라 적절하게 dependency의 version이 다운이 되므로-->
+		</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		<!--		<dependency>-->
 <!--					<groupId>org.mybatis.spring.boot</groupId>-->
 <!--					<artifactId>mybatis-spring-boot-starter</artifactId>-->
 <!--					<version>2.2.2</version>-->
 <!--				</dependency>-->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
