@@ -17,6 +17,18 @@ public class PagesController {
     @Autowired
     private BoardRepository boardRepository;   // JpaRepository 를 extends한 interface Boardrepository를
 
+    @GetMapping("/home")
+    public String try_2022_10_18_02_26_54() {
+        return "/viewers/home";
+    }
+    @GetMapping("/boards")
+    public String try_2022_10_18_18_54_26(Model model) {
+        List<Board> board_records = boardRepository.findAll();
+        model.addAttribute("board_records", board_records);
+        return "/viewers/boards";
+    }
+
+
     //    @RequestMapping("/")
 //    public String try100() {
 //        System.out.println("way recommanded - 예상국 - ");
@@ -30,32 +42,7 @@ public class PagesController {
 //        return "index";
 //    }
 
-    @GetMapping("/home")
-    public String try_2022_10_18_02_26_54() {
-        return "/viewers/home";
-    }
 
-//    @G`etMapping("/home")
-//    public ModelAndView try_2022_10_18_02_26_54(){
-//        return new ModelAndView("/viewers/home");
-//    }`
-//    @GetMapping("/boards")
-//    public ModelAndView try_2022_10_18_18_54_26(){
-//        return new ModelAndView("/viewers/boards");
-//    }
-
-//        @GetMapping("/boards")
-//    public String  try_2022_10_18_18_54_26(){
-//        return "/viewers/boards";
-//    }
-//
-//
-    @GetMapping("/boards")
-    public String try_2022_10_18_18_54_26(Model model) {
-        List<Board> board_records = boardRepository.findAll();
-        model.addAttribute("board_records", board_records);
-        return "/viewers/boards";
-    }
     //이 코드 작동 시나리오(database 이동 관점)
     // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 url ready )
     // client로  boardsRepository를 통해   jhpDB의 table의 record를 가져와 model에 저장을 합니다.(client로  model을 response ready)

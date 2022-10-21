@@ -11,8 +11,7 @@
     <title th:replace="viewers/common/fragments/common :: titlefragment('boards')">foo</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbar-static/">
     <link href="/assets/dist/css/bootstrap.min.css" th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="navbar-top.css" rel="stylesheet">
+    <link th:href="@{/navbar-top.css}" rel="stylesheet">
 </head>
 <body>
 <nav th:replace="viewers/common/fragments/common :: navFragment('boards')">

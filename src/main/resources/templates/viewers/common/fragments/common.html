@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<title class="_______" th:fragment="titlefragment(titleParameter)" th:text="${titleParameter}"></title>
+<!--title fragment(title Parameter)-->
+<title class="_______" th:fragment="titlefragment(titleFragmentParameter)" th:text="${titleFragmentParameter}"></title>
+
+
+<!--nav fragment(nav Fragment Parameter)-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:fragment="navFragment(navFragmentParameter)">
     <div class="container-fluid">
-        <a class="nav-link" aria-current="page" href="/pages/home">administrator</a>
+        <a class="nav-link" aria-current="page" th:href="@{/pages/home}">administrator</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarColl apse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,7 +32,5 @@
         </div>
     </div>
 </nav>
-
 </body>
-
 </html>
