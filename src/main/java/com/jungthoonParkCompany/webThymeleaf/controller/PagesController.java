@@ -21,6 +21,7 @@ public class PagesController {
     public String try_2022_10_18_02_26_54() {
         return "/viewers/home";
     }
+
     @GetMapping("/boards")
     public String try_2022_10_18_18_54_26(Model model) {
         List<Board> board_records = boardRepository.findAll();
