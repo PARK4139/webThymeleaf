@@ -15,6 +15,8 @@ var mm;
 var ss;
 var yyyy_MM_dd_HH_mm_ss;
 
+
+
 // + senario
 $(document).ready(function () {// window.onload = function(){
 	setInterval("get_yyyy_MM_dd_HH_mm_ss()", 1000);
@@ -24,12 +26,8 @@ $(document).ready(function () {// window.onload = function(){
 	// if (get_HH() == 17) {
 	// 	red_speaker_2022_08_30_23_09_48('이차장에게 보고하셔야 합니다.', 350);
 	// }
-
 	$('.mkr_singleline1').attr("type", "text");
 	$('.mkr_multilines4').attr("type", "button");
-
-
-
 	$('.xmp').click(function () {
 		$('.xmp').toggle('fast');
 	});
@@ -46,7 +44,6 @@ $(document).ready(function () {// window.onload = function(){
 // return;
 // }
 // }
-
 // + intro
 function intro_slow() {
 	setTimeout(function () { $('body').css({ "background-color": "black" }); }, 0);
@@ -70,8 +67,6 @@ function intro_fast() {
 	setTimeout(function () { $(".intro_text, .intro_right_bar, .intro_left_bar, .intro_img").fadeOut(0); }, 0);
 	setTimeout(function () { $('.section_old').children().fadeIn(800) }, 0);
 }
-
-
 // + _yyyy_MM_dd_HH_mm_ss
 function get_yyyy_MM_dd_HH_mm_ss() {
 	function modifyNumber(time) {
@@ -90,12 +85,6 @@ function get_yyyy_MM_dd_HH_mm_ss() {
 	ss = modifyNumber(date_info.getSeconds());
 	yyyy_MM_dd_HH_mm_ss = `_${yyyy}_${MM}_${dd}_${HH}_${mm}_${ss}`;
 }
-
-
-
-
-
-
 //+ btns_copy
 //분명히 부모를 클릭했는데  자식이 선택이 되는 것을 감지할 수 있는것 같습디다
 //이것은 아마 event 가 자식에게 progation 되기 때문인것 같습니다.
@@ -105,47 +94,62 @@ function get_yyyy_MM_dd_HH_mm_ss() {
 // 	// var target=$(event.currentTarget);
 // 	var target = $(event.target);
 // 	window.navigator.clipboard.writeText(target.val()).then(() => {
-// 		$(".msg_copied").fadeIn(300).delay(20);
-// 		$(".msg_copied").fadeOut(300);
-// 		$(".btn_value_empty").val(target.val());
 // 	});
 // });
-
-
-
-
-
-
-// + click trigger paste + 클립보드 API
-// .btn_value_empty를 클릭하면 clipboard에 저장된 text를 .btn_value_empty에 붙여넣기 해주는 기능입니다.
-// var target = ".btn_value_empty";
-// $(target).on("click", function () {
-// 	navigator.clipboard.readText().then((clipText) => {
-// 		document.querySelector(target).value = clipText;
-// 	});
-// 	// schedule1 = setInterval("update_mirror()",0);
-// 	update_mirror();
-// });
-
-
-
-
-
-
 //+ text_to_clipboard
 // pre tag의 value을  event.target.value 받아온다. 그리고 clipboard API를 이용해서 값을 클립보드에 저장한다.
 $(".text_to_clipboard").on("click", function () {
-	// alert(event.target.value);
-	// alert(event.target.innerHTML);
 	window.navigator.clipboard.writeText(event.target.value).then(() => {
 		$(".msg_copied").fadeIn(300).delay(20);
 		$(".msg_copied").fadeOut(300);
 	});
+}); 
+//+ text_to_clipboard1
+// pre tag의 value을  event.target.innerHTML 받아온다. 그리고 clipboard API를 이용해서 값을 클립보드에 저장한다.
+$(".text_to_clipboard1").on("click", function () {
+	window.navigator.clipboard.writeText(event.target.innerHTML).then(() => {
+		$(".msg_copied").fadeIn(300).delay(20);
+		$(".msg_copied").fadeOut(300);
+	});
 });
-
-
-
-
+//+ toggle_sw1
+$(".toggle_sw1").on("click", function () {
+	    $(".toogle_sw1_target").toggle();
+});
+//+ toggle_sw2
+$(".toggle_sw2").on("click", function () {
+	    $(".toogle_sw2_target").toggle();
+		
+});
+//+ toggle_sw3
+$(".toggle_sw3").on("click", function () {
+	    $(".toogle_sw3_target").toggle();
+		
+});
+//+ toggle_sw4
+$(".toggle_sw4").on("click", function () {
+	    $(".toogle_sw4_target").toggle();
+		
+});
+//+ toggle_sw5
+$(".toggle_sw5").on("click", function () {
+	    $(".toogle_sw5_target").toggle();
+		
+});
+//+ toggle_sw6
+$(".toggle_sw6").on("click", function () {
+	    $(".toggle_sw6_target").toggle();
+		
+});
+//+ toggle_sw7
+$(".toggle_sw7").on("click", function () {
+	    $(".toggle_sw7_target").toggle();
+		
+});
+//+ toggle_sw8
+$(".toggle_sw8").on("click", function () {
+	    $(".toggle_sw8_target").toggle("fast");
+});
 function rainbow_color(speed) {
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -161,9 +165,7 @@ function rainbow_color(speed) {
 			"background-color": "transparent",
 			'text-indent': '0px',
 			"width": "500px",
-
 		});
-
 	}, speed * 2);
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -171,9 +173,7 @@ function rainbow_color(speed) {
 			"background-color": "transparent",
 			'text-indent': '0px',
 			"width": "500px",
-
 		});
-
 	}, speed * 3);
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -181,9 +181,7 @@ function rainbow_color(speed) {
 			"background-color": "transparent",
 			'text-indent': '0px',
 			"width": "500px",
-
 		});
-
 	}, speed * 4);
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -191,9 +189,7 @@ function rainbow_color(speed) {
 			"background-color": "transparent",
 			'text-indent': '0px',
 			"width": "500px",
-
 		});
-
 	}, speed * 5);
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -201,14 +197,9 @@ function rainbow_color(speed) {
 			"background-color": "transparent",
 			'text-indent': '0px',
 			"width": "500px",
-
 		});
-
 	}, speed * 6);
-
 }
-
-
 /* write_text_as_text_file */function write_text_as_text_file(fileName, content) {
 /* write_text_as_text_file */	var blob = new Blob([content], { type: 'text/plain' });
 /* write_text_as_text_file */	objURL = window.URL.createObjectURL(blob);
@@ -224,10 +215,6 @@ function rainbow_color(speed) {
 /* write_text_as_text_file */	a.click();
 	/* write_text_as_text_file */
 }
-
-
-
-
 //  onlyMirror
 $(".container").on("click", function () {
 	// alert(event.target.value);
@@ -238,25 +225,14 @@ $(document).ready(function () {
 		$(".onlyJs1").attr("value", $(".onlyMirrorSegment2").val() + yyyy_MM_dd_HH_mm_ss);
 	}, 1000);
 });
-
-
-
-
-
-
 /* 뒤로가기 */
 $(".btn_to_go_back").on("click", function () {
 	var x = window.open("sky.html", "HTML 개요", "menubar = yes,location = yes,resizable = yes,scrollbars = yes,status = yes");
 });
-
 /* 닫기 */
 $(".btn_to_close").on("click", function () {
 	var x = window.close();
 });
-
-
-
-
 /* red green purple msg box */$(".red_msg").hover(function () {
 /* red green purple msg box */		$(".red_msg").fadeOut(900);
 	/* red green purple msg box */
@@ -269,9 +245,6 @@ $(".btn_to_close").on("click", function () {
 /* red green purple msg box */		$(".purple_msg").fadeOut(900);
 	/* red green purple msg box */
 });
-
-
-
 function red_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	var target1 = '.red_msg'
 	var target2 = '.red_msg_line_first'
@@ -298,9 +271,6 @@ function red_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	$(target1).hide().delay(2000).show(fadeIn_time);
 	$(target2).hide().delay(2000).show(fadeIn_time);
 }
-
-
-
 function green_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	var target = $(".green_msg");
 	target.css({
@@ -317,8 +287,6 @@ function green_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	target.text(msg);
 	target.hide().delay(2000).fadeIn(fadeIn_time);
 }
-
-
 function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	var target = $(".purple_msg");
 	target.css({
@@ -337,10 +305,6 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	// target.show(1000);
 	target.hide().delay(2000).fadeIn(fadeIn_time);
 }
-
-
-
-
 // function dark_mode_or_light_mode_controller(){
 // 	if(document.querySelector('body').style.backgroundColor == 'black'){
 // 		setLightMode();
@@ -549,9 +513,7 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	document.body.removeChild(textArea);
 // }
 // function massage_controller(){
-
 // 	// document.querySelector(".class_generated_at_2022_08_22_21_12_38").attr("value","");
-
 // }
 // function function_generated_at_2022_08_23_14_36_14(){
 // 	document.execCommand('copy');
@@ -562,7 +524,6 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	textArea.value = document.querySelector(".class_generated_at_2022_08_26_11_06_35").value;
 // 	document.body.removeChild(textArea);
 // }
-
 // //null
 // var target_2022_08_25_17_44_08=$(".output_2022_08_25_17_50_10");
 // function null_2022_08_25_17_54_44(){
@@ -578,20 +539,6 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	document.execCommand('copy');
 // 	document.body.removeChild(textArea);
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // "use strict";
 // window.AllowBackFromHistory = false;
 // function CheckLocation() {
@@ -771,13 +718,6 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 //     }, 100);
 //     return false;
 // }
-
-
-
-
-
-
-
 //scheduler
 // var date_info = new Date();
 // var HH = modifyNumber(date_info.getHours());
@@ -789,10 +729,6 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // if(MM==9){
 // 	document.querySelector(".___________").innerHTML="9월 입니다 학점은행제 학위를 출력하세요"
 // }
-
-
-
-
 /*stt_code_segment1/x*/ //stt via
 // stt via p5.js
 // stt via jquery.js
@@ -804,16 +740,10 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	'opacity': '0.5',
 // 	"width": "750px",
 // });
-
-
-
-
-
 $(".layer_center_2022_08_25_20_38_54").css({
 	"height": "760px",
 	"position": "fixed",
 	"background-color": "black",
-
 	"display": "flex",
 	"justify-content": "end",
 	"width": "750px",
@@ -876,9 +806,6 @@ $(".intro_text").css({
 	"font-size": "100%",
 	"border-color": "transparent transparent transparent transparent",
 });
-
-
-
 // "background": "transparent",
 // "border-color": "transparent transparent transparent transparent",
 // "margin-left": "386.719px",
@@ -917,7 +844,6 @@ $(".intro_text").css({
 // "overflow": "scroll",
 // "overflow": "hidden",
 // "overflow": "hidden",
-
 // "width": "1100x",
 //form_text
 // text-transform: uppercase;
@@ -1101,12 +1027,6 @@ $(".intro_text").css({
 //  "justify-content":"center",
 //  "height":'170px',
 //  "font-size": "20pt",
-
-
-
-
-
-
 	// + debugging window
 	// + console alternative
 	// var target = $("body > div > form:nth-child(2) > div > div:nth-child(4) > div:nth-child(2) > img");
@@ -1200,8 +1120,6 @@ $(".intro_text").css({
 	// });
 	// $('.class_created_at_2022_08_12_24').attr('src', 'images/cat.jpg');
 	// $('.class_created_at_2022_08_12_24').attr('checked', 'true');
-
-
 	// target.mouseenter(function () {
 	// 	window.alert('mouse hovered.');
 	// });
@@ -1217,13 +1135,4 @@ $(".intro_text").css({
 	// $(document).ready(function () {//it works like as window.onload.
 	// 	window.alert('document is been ready to use function');
 	// });
-
-
-
 	//find()...vs     filter(
-
-
-
-
-
-

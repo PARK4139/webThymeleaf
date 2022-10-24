@@ -1,4 +1,4 @@
-package com.jungthoonParkCompany.webThymeleaf.modelandRepository;
+package com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository;
 
 import lombok.Data;
 

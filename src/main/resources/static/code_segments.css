@@ -242,6 +242,29 @@ body::-webkit-scrollbar {
 	display: none;
 }
 
+.msg_toggled {
+	position: absolute;
+	position: fixed;
+	top: 40%;
+	left: 30%;
+	width: 500px;
+	height: 35px;
+	padding: 5px;
+	color: white;
+	font-size: 15px;
+	font-weight: lighter;
+	letter-spacing: 10px;
+	word-spacing: 10px;
+	text-align: center;
+	border-color: rgb(55, 0, 255);
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 20px;
+	background-color: black;
+	opacity: 60%;
+	display: none;
+}
+
 .btn_largest {
 	width: 2000px;
 	text-align: left;

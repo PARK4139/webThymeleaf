@@ -1,40 +1,29 @@
-package com.jungthoonParkCompany.webThymeleaf.controller;
+package com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository;
 
 
-import com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository.Board;
-import com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+import java.util.Locale;
 
 @Controller
-@RequestMapping("/pages")
-public class PagesController {
+public class BoardsController {
     @Autowired
-    private BoardRepository boardRepository;   // JpaRepository 를 extends한 interface Boardrepository를
-
-    @GetMapping("/home")
-    public String try_2022_10_18_02_26_54() {
-        return "/viewers/home";
+    private BoardRepository boardRepository;
+    @RequestMapping(value = "/pages/boardsWithPaging", method = RequestMethod.GET)
+    public String listAll(Locale locale, Model model) throws Exception {
+        model.addAttribute("list", boardRepository.findAll());
+        return "/viewers/boardsWithPagination";
     }
-
-
-    //    @RequestMapping("/")
-//    public String try100() {
-//        System.out.println("way recommanded - 예상국 - ");
-//        System.out.println("did try to trigger method successfully");
-//        System.out.println("index page가 필요없다면 이 코드는 별로 필요없는 코드 같아 보입니다.");
-//        System.out.println("
-//        index.html 을  xedni.html로 rename 후 해당코드 주석처리 결과 다른 페이지는 정상 작동합니다.
-//        따라서 welcome page는 불필요해 해 보입니다.
-//        그래도 혹여나 spring boot 의 초기설정을 돕는 기능이 있을지도 모르니,
-//        url mapping issue 시 시도해보는 것이 좋을 것 같습니다 ");
-//        return "index";
-//    }
 
 
     //이 코드 작동 시나리오(database 이동 관점)
