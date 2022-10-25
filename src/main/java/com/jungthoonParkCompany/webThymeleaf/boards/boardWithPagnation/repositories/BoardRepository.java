@@ -1,5 +1,6 @@
-package com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository;
+package com.jungthoonParkCompany.webThymeleaf.boards.boardWithPagnation.repositories;
 
+import com.jungthoonParkCompany.webThymeleaf.boards.boardWithPagnation.entities.Board;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

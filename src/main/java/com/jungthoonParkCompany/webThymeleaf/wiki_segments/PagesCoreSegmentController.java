@@ -1,26 +1,47 @@
-package com.jungthoonParkCompany.webThymeleaf.controller;
+package com.jungthoonParkCompany.webThymeleaf.wiki_segments;
 
 
-import com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository.Board;
-import com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/pages")
-public class PagesController {
+//@RequestMapping("/pages")
+public class PagesCoreSegmentController {
     @Autowired
-    private BoardRepository boardRepository;   // JpaRepository 를 extends한 interface Boardrepository를
+    private RowsSkyParasiticideRepository rowsSkyParasiticideRepository;
 
-    @GetMapping("/home")
-    public String try_2022_10_18_02_26_54() {
-        return "/viewers/home";
+    @GetMapping("/pages/code-segments")
+    public String try_2022_10_18_02_26_58(Model model) {
+        List<RowsSkyParasiticide> rowsSkyParasiticide =rowsSkyParasiticideRepository.findAll();
+        model.addAttribute("rowsSkyParasiticideForR", rowsSkyParasiticide);
+        model.addAttribute("rowsSkyParasiticideForU",new RowsSkyParasiticide());
+        model.addAttribute("rowsSkyParasiticideForD",new RowsSkyParasiticide());
+        return "/wiki_segments/code_segments";
     }
+
+    @PostMapping("/pages/code-segments")
+    public String try_2022_10_18_02_26_51(@ModelAttribute RowsSkyParasiticide rowsSkyParasiticide) {
+        if(rowsSkyParasiticide.getId()==null){
+            rowsSkyParasiticideRepository.save(rowsSkyParasiticide);
+        }else if(rowsSkyParasiticideRepository.findById(rowsSkyParasiticide.getId())==null) {
+            rowsSkyParasiticideRepository.save(rowsSkyParasiticide);
+        }else{
+            rowsSkyParasiticideRepository.save(rowsSkyParasiticide);
+        }
+        return "redirect:/pages/code-segments";
+//      view issue try alternative:        return "redirect:/code_segments"; (server address)  ->        return "redirect:/pages/code-segments" (url);
+    }
+
+    @PostMapping("/pages/code-segments/delete")
+    public String try_2022_10_24_16_54_43(@ModelAttribute RowsSkyParasiticide rowsSkyParasiticide) {
+        rowsSkyParasiticideRepository.deleteById(rowsSkyParasiticide.getId());
+        return "redirect:/pages/code-segments";
+    }
+
 
 
     //    @RequestMapping("/")
@@ -93,6 +114,5 @@ public class PagesController {
 //        System.out.println("did try to trigger method successfully");
 //        return usr;
 //    }
-
 
 }

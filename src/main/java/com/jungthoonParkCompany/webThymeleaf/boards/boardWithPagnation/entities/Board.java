@@ -1,4 +1,4 @@
-package com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository;
+package com.jungthoonParkCompany.webThymeleaf.boards.boardWithPagnation.entities;
 
 import lombok.Data;
 
@@ -15,4 +15,7 @@ public class Board {
     private long id;
     private String title;
     private String content;
+    private String writer;
+    private String regdate;
+    private String viewcnt;
 }

@@ -1,9 +1,9 @@
 //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-//        _
-//       (_)____
-//      / / ___/
-//     / (__  )
-//  __/ /____/
+//             _
+//            (_)____
+//          / / ___/
+//         / (__  )
+//    __/ /____/
 // /___/
 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 // + global
@@ -14,12 +14,53 @@ var HH;
 var mm;
 var ss;
 var yyyy_MM_dd_HH_mm_ss;
+var timestamp;
+var dayOfTheWeek;
+function getTimeSegments() {
+	function to2Digits(time) {
+		if (parseInt(time) < 10) {
+			return "0" + time;
+		}
+		else
+			return time;
+	}
+//	KST time_segments
+	var date = new Date();
+	yyyy = date.getFullYear();
+	MM = to2Digits(date.getMonth() + 1);
+	dd = to2Digits(date.getDate());
+	HH = to2Digits(date.getHours());
+	mm = to2Digits(date.getMinutes());
+	ss = to2Digits(date.getSeconds());
+	yyyy_MM_dd_HH_mm_ss = `_${yyyy}_${MM}_${dd}_${HH}_${mm}_${ss}`;
+//	var week = new Array('일','월','화','수','목','금','토');
+	var week = new Array('SUN','MON','TUE','WED','THU','FRI','SAT');
+	dayOfTheWeek = week[date.getDay()];
+//	$(".mkr_KST").text(`${MM}`);
+//	$(".mkr_KST").text(`${yyyy}`);
+//	$(".mkr_KST").text(`${dayOfTheWeek}`);
+//	$(".mkr_KST").text(`${timestamp}`);
+//	$(".mkr_KST").text(`${yyyy} ${MM} ${dd} ${HH} ${mm} ${ss} `);
+	$(".mkr_KST").text(`${yyyy} ${MM} ${dd} ${HH} ${mm} ${ss} ${dayOfTheWeek}`);
 
+}
 
+document.addEventListener("DOMContentLoaded", function() {
+    // GMT + 0
+    var hour = 0;
+    var date = new Date();
+    var date_ = date.setHours(date.getHours() + hour);
+    var date__ = new Date(date_);
+    $(".mkr_GMT").text(date__.toUTCString());
+
+    // KST
+//    var date = new Date();
+//    $(".mkr_KST").text(date.toString());
+});
 
 // + senario
 $(document).ready(function () {// window.onload = function(){
-	setInterval("get_yyyy_MM_dd_HH_mm_ss()", 1000);
+	setInterval("getTimeSegments()", 1000);
 	// intro_slow();
 	intro_fast();
 	rainbow_color(120);
@@ -67,24 +108,7 @@ function intro_fast() {
 	setTimeout(function () { $(".intro_text, .intro_right_bar, .intro_left_bar, .intro_img").fadeOut(0); }, 0);
 	setTimeout(function () { $('.section_old').children().fadeIn(800) }, 0);
 }
-// + _yyyy_MM_dd_HH_mm_ss
-function get_yyyy_MM_dd_HH_mm_ss() {
-	function modifyNumber(time) {
-		if (parseInt(time) < 10) {
-			return "0" + time;
-		}
-		else
-			return time;
-	}
-	var date_info = new Date();
-	yyyy = date_info.getFullYear();
-	MM = modifyNumber(date_info.getMonth() + 1);
-	dd = modifyNumber(date_info.getDate());
-	HH = modifyNumber(date_info.getHours());
-	mm = modifyNumber(date_info.getMinutes());
-	ss = modifyNumber(date_info.getSeconds());
-	yyyy_MM_dd_HH_mm_ss = `_${yyyy}_${MM}_${dd}_${HH}_${mm}_${ss}`;
-}
+
 //+ btns_copy
 //분명히 부모를 클릭했는데  자식이 선택이 되는 것을 감지할 수 있는것 같습디다
 //이것은 아마 event 가 자식에게 progation 되기 때문인것 같습니다.
@@ -103,7 +127,7 @@ $(".text_to_clipboard").on("click", function () {
 		$(".msg_copied").fadeIn(300).delay(20);
 		$(".msg_copied").fadeOut(300);
 	});
-}); 
+});
 //+ text_to_clipboard1
 // pre tag의 value을  event.target.innerHTML 받아온다. 그리고 clipboard API를 이용해서 값을 클립보드에 저장한다.
 $(".text_to_clipboard1").on("click", function () {
@@ -113,43 +137,9 @@ $(".text_to_clipboard1").on("click", function () {
 	});
 });
 //+ toggle_sw1
-$(".toggle_sw1").on("click", function () {
-	    $(".toogle_sw1_target").toggle();
-});
-//+ toggle_sw2
-$(".toggle_sw2").on("click", function () {
-	    $(".toogle_sw2_target").toggle();
-		
-});
-//+ toggle_sw3
-$(".toggle_sw3").on("click", function () {
-	    $(".toogle_sw3_target").toggle();
-		
-});
-//+ toggle_sw4
-$(".toggle_sw4").on("click", function () {
-	    $(".toogle_sw4_target").toggle();
-		
-});
-//+ toggle_sw5
-$(".toggle_sw5").on("click", function () {
-	    $(".toogle_sw5_target").toggle();
-		
-});
-//+ toggle_sw6
-$(".toggle_sw6").on("click", function () {
-	    $(".toggle_sw6_target").toggle();
-		
-});
-//+ toggle_sw7
-$(".toggle_sw7").on("click", function () {
-	    $(".toggle_sw7_target").toggle();
-		
-});
-//+ toggle_sw8
-$(".toggle_sw8").on("click", function () {
-	    $(".toggle_sw8_target").toggle("fast");
-});
+//$(".toggle_sw1").on("click", function () {
+//	    $(".toogle_sw1_target").toggle();
+//});
 function rainbow_color(speed) {
 	setInterval(function () {
 		$(".style_color_2022_08_27_09_31_26").css({
@@ -200,20 +190,20 @@ function rainbow_color(speed) {
 		});
 	}, speed * 6);
 }
-/* write_text_as_text_file */function write_text_as_text_file(fileName, content) {
-/* write_text_as_text_file */	var blob = new Blob([content], { type: 'text/plain' });
-/* write_text_as_text_file */	objURL = window.URL.createObjectURL(blob);
-/* write_text_as_text_file */	// 이전에 생성된 메모리 해제
-/* write_text_as_text_file */	if (window.__Xr_objURL_forCreatingFile__) {
-/* write_text_as_text_file */		window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
+function write_text_as_text_file(fileName, content) {
+	var blob = new Blob([content], { type: 'text/plain' });
+	objURL = window.URL.createObjectURL(blob);
+	// 이전에 생성된 메모리 해제
+	if (window.__Xr_objURL_forCreatingFile__) {
+		window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
 		/* write_text_as_text_file */
 	}
-/* write_text_as_text_file */	window.__Xr_objURL_forCreatingFile__ = objURL;
-/* write_text_as_text_file */	var a = document.createElement('a');
-/* write_text_as_text_file */	a.download = fileName;
-/* write_text_as_text_file */	a.href = objURL;
-/* write_text_as_text_file */	a.click();
-	/* write_text_as_text_file */
+	window.__Xr_objURL_forCreatingFile__ = objURL;
+	var a = document.createElement('a');
+	a.download = fileName;
+	a.href = objURL;
+	a.click();
+
 }
 //  onlyMirror
 $(".container").on("click", function () {
@@ -233,17 +223,17 @@ $(".btn_to_go_back").on("click", function () {
 $(".btn_to_close").on("click", function () {
 	var x = window.close();
 });
-/* red green purple msg box */$(".red_msg").hover(function () {
-/* red green purple msg box */		$(".red_msg").fadeOut(900);
-	/* red green purple msg box */
+$(".red_msg").hover(function () {
+		$(".red_msg").fadeOut(900);
+
 });
-/* red green purple msg box */$(".green_msg").hover(function () {
-/* red green purple msg box */		$(".green_msg").fadeOut(900);
-	/* red green purple msg box */
+$(".green_msg").hover(function () {
+		$(".green_msg").fadeOut(900);
+
 });
-/* red green purple msg box */$(".purple_msg").hover(function () {
-/* red green purple msg box */		$(".purple_msg").fadeOut(900);
-	/* red green purple msg box */
+$(".purple_msg").hover(function () {
+		$(".purple_msg").fadeOut(900);
+
 });
 function red_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	var target1 = '.red_msg'
@@ -261,11 +251,6 @@ function red_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 	});
 	$(target2).css({
 		"color": "white",
-		// "top": "35%",
-		// "left": "30%",
-		// "width": "50%",
-		// "height": "20%",
-		// "font-weight": "100",
 	});
 	$(target2).text(msg);
 	$(target1).hide().delay(2000).show(fadeIn_time);
@@ -301,11 +286,9 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 		"font-weight": "100",
 	});
 	target.text(msg);
-	// target.show(1000);
-	// target.show(1000);
 	target.hide().delay(2000).fadeIn(fadeIn_time);
 }
-// function dark_mode_or_light_mode_controller(){
+// function toggleDarkMode(){
 // 	if(document.querySelector('body').style.backgroundColor == 'black'){
 // 		setLightMode();
 // 	} else {
@@ -324,27 +307,17 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	document.querySelector('.page_data_display').innerHTML = "";
 // 	document.querySelector('.page_data_display').innerHTML += "page_url";
 // }
-// // time_real_time
-// function setClock1(){
-// 	var date_info = new Date();
-// 	var HH = modifyNumber(date_info.getHours());
-// 	var mm = modifyNumber(date_info.getMinutes());
-// 	var ss = modifyNumber(date_info.getSeconds());
-// 	var yyyy = date_info.getFullYear();
-// 	var MM = modifyNumber(date_info.getMonth()+1);
-// 	var dd = date_info.getDate();
-// 	document.querySelector(".time_real_time").innerHTML = yyyy + " " + MM + " " + dd + " " + HH + " " + mm + " " + ss;;
-// }
+
 //variable_generater
 // //class_generater
 // function function_generated_at_2022_08_22_18_56_56(){
-// 	var date_info = new Date();
-// 	var HH = modifyNumber(date_info.getHours());
-// 	var mm = modifyNumber(date_info.getMinutes());
-// 	var ss = modifyNumber(date_info.getSeconds());
-// 	var yyyy = date_info.getFullYear();
-// 	var MM = modifyNumber(date_info.getMonth()+1); ////for month_index
-// 	var dd = date_info.getDate();
+// 	var date = new Date();
+// 	var HH = to2Digits(date.getHours());
+// 	var mm = to2Digits(date.getMinutes());
+// 	var ss = to2Digits(date.getSeconds());
+// 	var yyyy = date.getFullYear();
+// 	var MM = to2Digits(date.getMonth()+1); ////for month_index
+// 	var dd = date.getDate();
 // 	document.querySelector(".class_generated_at_2022_08_22_18_56_51").value = "variable_generated_at_"+ yyyy + "_" + MM + "_" + dd + "_" + HH + "_" + mm + "_" + ss;
 // 	document.querySelector(".class_generated_at_2022_08_22_19_00_02").value = "class_generated_at_"+ yyyy + "_" + MM + "_" + dd + "_" + HH + "_" + mm + "_" + ss;
 // 	document.querySelector(".class_generated_at_2022_08_22_19_00_08").value = "function_generated_at_"+ yyyy + "_" + MM + "_" + dd + "_" + HH + "_" + mm + "_" + ss;
@@ -380,13 +353,13 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 // 	document.body.removeChild(textArea);
 // }
 // // function setInputedValue(){
-// // 	var date_info = new Date();
-// // 	var HH = modifyNumber(date_info.getHours());
-// // 	var mm = modifyNumber(date_info.getMinutes());
-// // 	var ss = modifyNumber(date_info.getSeconds());
-// // 	var yyyy = date_info.getFullYear();
-// // 	var MM = modifyNumber(date_info.getMonth()+1); ////for month_index
-// // 	var dd = date_info.getDate();
+// // 	var date = new Date();
+// // 	var HH = to2Digits(date.getHours());
+// // 	var mm = to2Digits(date.getMinutes());
+// // 	var ss = to2Digits(date.getSeconds());
+// // 	var yyyy = date.getFullYear();
+// // 	var MM = to2Digits(date.getMonth()+1); ////for month_index
+// // 	var dd = date.getDate();
 // // 	document.querySelector(".class_generated_at_2022_08_22_02_02_00").innerHTML=document.querySelector(".class_generated_at_2022_08_22_01_59_50").value+"_"+yyyy + "_" + MM + "_" + dd + "_" + HH + "_" + mm + "_" + ss;
 // // }
 // function ___________(){
@@ -718,20 +691,7 @@ function purple_speaker_2022_08_30_23_09_48(msg, fadeIn_time) {
 //     }, 100);
 //     return false;
 // }
-//scheduler
-// var date_info = new Date();
-// var HH = modifyNumber(date_info.getHours());
-// var mm = modifyNumber(date_info.getMinutes());
-// var ss = modifyNumber(date_info.getSeconds());
-// var yyyy = date_info.getFullYear();
-// var MM = modifyNumber(date_info.getMonth()+1); ////for month_index
-// var dd = date_info.getDate();
-// if(MM==9){
-// 	document.querySelector(".___________").innerHTML="9월 입니다 학점은행제 학위를 출력하세요"
-// }
-/*stt_code_segment1/x*/ //stt via
-// stt via p5.js
-// stt via jquery.js
+
 // $(".voice_memo_two_slash_two").css({
 // 	"height": "760px",
 // 	"position": "fixed",

@@ -1,4 +1,4 @@
-package com.jungthoonParkCompany.webThymeleaf.entities;
+package com.jungthoonParkCompany.webThymeleaf.wiki_segments;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.jungthoonParkCompany.webThymeleaf.test;
+package com.jungthoonParkCompany.webThymeleaf.thymeleafTraning;
 
 public class Greeting {
 

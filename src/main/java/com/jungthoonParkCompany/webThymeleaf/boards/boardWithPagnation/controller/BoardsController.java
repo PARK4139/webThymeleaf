@@ -1,33 +1,28 @@
-package com.jungthoonParkCompany.webThymeleaf.boards.controllerAndModelAndRepository;
+package com.jungthoonParkCompany.webThymeleaf.boards.boardWithPagnation.controller;
 
 
+import com.jungthoonParkCompany.webThymeleaf.boards.boardWithPagnation.repositories.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
 import java.util.Locale;
 
 @Controller
 public class BoardsController {
     @Autowired
     private BoardRepository boardRepository;
-    @RequestMapping(value = "/pages/boardsWithPaging", method = RequestMethod.GET)
+    @RequestMapping(value = "/pages/boardsWithPagination", method = RequestMethod.GET)
     public String listAll(Locale locale, Model model) throws Exception {
-        model.addAttribute("list", boardRepository.findAll());
+        model.addAttribute("boards", boardRepository.findAll());
         return "/viewers/boardsWithPagination";
     }
 
 
     //이 코드 작동 시나리오(database 이동 관점)
-    // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 url ready )
+    // client가 http://localhost:9090/pages/boards 로 get request를 합니다.(해당 코드의 작동 트리거 : url 로 접속 )
     // client로  boardsRepository를 통해   jhpDB의 table의 record를 가져와 model에 저장을 합니다.(client로  model을 response ready)
     // client로 templates/viewers/boards.html를 response 할 준비를 합니다.(html rsrc ready)
     // http://localhost:9090/pages/boards 로 response를 한다

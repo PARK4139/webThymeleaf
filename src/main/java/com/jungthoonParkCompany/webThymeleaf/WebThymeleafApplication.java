@@ -11,7 +11,7 @@ public class WebThymeleafApplication {
 		Win10controller win10controller= new Win10controller();
 //		win10controller.run("start http://localhost:9090/pages/home");
 //		win10controller.run("start http://localhost:9090/pages/boards");
-//		win10controller.run("start http://localhost:9090/pages/boardsWithPaging");
+//		win10controller.run("start http://localhost:9090/pages/boardsWithPagination");
 		win10controller.run("start http://localhost:9090/pages/code-segments");
 //		win10controller.run("start http://localhost:9090/greeting");
 	}

@@ -80,20 +80,20 @@ $(function () {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="boardVO : ${list}">
-                                    <td th:text="${boardVO.bno}">BNO</td>
-                                    <td><a th:href="@{/samplehome/board/read(bno=${boardVO.bno})}" th:text="${boardVO.title}">TITLE</a></td>
-                                    <td th:text="${boardVO.writer}">WRITER</td>
-                                    <td th:text="${#dates.format(boardVO.regdate, 'yyyy-MM-dd HH:mm')}">REGDATE</td>
-                                    <td th:text="${boardVO.viewcnt}">VIEWCNT</td>
+                                <tr th:each="board : ${boards}">
+                                    <td th:text="${board.id}">id</td>
+                                    <td><a th:href="@{/samplehome/board/read(id=${board.id})}" th:text="${board.title}">TITLE</a></td>
+                                    <td th:text="${board.writer}">WRITER</td>
+                                    <td th:text="${#dates.format(board.regdate, 'yyyy-MM-dd HH:mm')}">REGDATE</td>
+                                    <td th:text="${board.viewcnt}">VIEWCNT</td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>BNO</th>
-                                    <th>TITLE</th>
-                                    <th>WRITER</th>
-                                    <th>REGDATE</th>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>등록일</th>
                                     <th>VIEWCNT</th>
                                 </tr>
                                 </tfoot>
